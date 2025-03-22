@@ -1,50 +1,50 @@
 #include<bits/stdc++.h>
+#include <iostream>
+#include <cmath>
 using namespace std;
-#define ll long long
-//ll n=1e+9;
 int main(){
-    vector<string>vec;
-    for(int i=0;i<4;i++){
-        string s;cin>>s;
-        vec.push_back(s);
+    int num;
+    cin>>num;
+    int arr[num],index,i;
+
+    for(i=0;i<num;i++){
+        cin>>arr[i];
     }
-    for(int i=0;i<3;i++){
-        ll count=0;
-        for(int j=0;j<3;j++){
-            if(vec[i][j]=='#'){
-                count++;
+
+
+    if(arr[0]%2==0 && arr[1]%2==0){
+        for(i=2;i<num;i++){
+            if(arr[i]%2 != 0){
+                index=i+1;cout<<index<<endl;break;
             }
-            if(vec[i][j+1]=='#'){
-                count++;
-            }
-            if(vec[i+1][j]=='#'){
-                count++;
-            }
-            if(vec[i+1][j+1]=='#'){
-                count++;
-            }
-            if(count==3 || count==4){
-                cout<<"YES"<<endl;return 0;
-            }
-            count=0;
-            if(vec[i][j]=='.'){
-                count++;
-            }
-            if(vec[i][j+1]=='.'){
-                count++;
-            }
-            if(vec[i+1][j]=='.'){
-                count++;
-            }
-            if(vec[i+1][j+1]=='.'){
-                count++;
-            }
-            if(count==3 || count==4){
-                cout<<"YES"<<endl;return 0;
-            }
-            count=0;
         }
     }
-    cout<<"NO"<<endl;
-    return 0;
+    else if(arr[0]%2 != 0 && arr[1]%2 != 0){
+        for(i=2;i<num;i++){
+            if(arr[i]%2 == 0){
+                index=i+1;cout<<index<<endl;break;
+            }
+        }
+    }
+
+    else if(arr[0]%2 != 0 && arr[1]%2 == 0){
+        if(arr[2]%2==0){
+            cout<<1<<endl;
+        }
+        else{cout<<2<<endl;}
+
+    }
+    else if(arr[0]%2 == 0 && arr[1]%2 != 0){
+        if(arr[2]%2==0){
+            cout<<2<<endl;
+        }
+        else{cout<<1<<endl;}
+
+    }
+
+        return 0;
 }
+
+
+
+ 
